@@ -26,19 +26,9 @@ class MarbleViewModel: ObservableObject {
         return round(start)
     }
     
-    init() {
-        var model = MarbleModel(id: UUID())
-        if let url = URL(string: "file:///Users/matarangavlad/Downloads/marble_log.txt") {
-            do {
-                let models = try MyFileManager.getLogEvents(for: url)
-                if let myModel = models?.marbleModels.first?.value {
-                    model = myModel
-                }
-            } catch {
-                print(error)
-            }
-        }
+    init(model: MarbleModel) {
         self.model = model
+        self.selectNodeIndex(1)
     }
     
     func getDate(for timeIndex: UInt64) -> String? {

@@ -10,6 +10,7 @@ import CombineMarbleCommon
 
 class MarbleLogsList {
     private(set) var marbleModels: [UUID: MarbleModel] = [:]
+    private(set) var groupedByTag: [String: [MarbleModel]] = [:]
     
     private func safeMarbleInit(_ id: UUID) {
         if marbleModels[id] == nil {
@@ -61,6 +62,11 @@ class MarbleLogsList {
     func finishDataInjection() {
         for model in marbleModels.values {
             model.finishDataInjection()
+            guard let tag = model.tag else { continue }
+            if groupedByTag[tag] == nil {
+                groupedByTag[tag] = []
+            }
+            groupedByTag[tag]?.append(model)
         }
     }
 }

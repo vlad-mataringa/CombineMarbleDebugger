@@ -8,7 +8,7 @@
 import SwiftUI
 import CombineMarbleCommon
 
-struct ContentView: View {
+struct DiagramsView: View {
     
     @ObservedObject var viewModel: MarbleViewModel
     

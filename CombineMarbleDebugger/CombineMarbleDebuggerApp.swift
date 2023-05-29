@@ -11,7 +11,7 @@ import SwiftUI
 struct CombineMarbleDebuggerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: MarbleViewModel())
+            MainView(viewModel: MainViewModel())
         }
     }
 }
