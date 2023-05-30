@@ -9,13 +9,22 @@ import SwiftUI
 
 struct DragAndDropView: View {
     @State private var dragOver = false
+    
+    let didDropFileAction: (URL) -> Void
 
     var body: some View {
-        Image(systemName: "figure.play")
-            .scaledToFill()
-            .frame(width: 100, height: 100)
-            .onDrop(of: ["public.file-url"], isTargeted: $dragOver, perform: onDropAction(_:))
-            .border(dragOver ? Color.red : Color.clear)
+        VStack {
+            Image(systemName: "square.and.arrow.up.circle")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 80, height: 80)
+                .onDrop(of: ["public.file-url"], isTargeted: $dragOver, perform: onDropAction(_:))
+                .foregroundColor(dragOver ? .blue : .primary)
+            Text("Drop here your logs file.")
+                .font(.body)
+                .padding()
+        }
+       
     }
     
     func onDropAction(_ providers: [NSItemProvider]) -> Bool {
@@ -23,7 +32,8 @@ struct DragAndDropView: View {
             if let data = data,
                let path = NSString(data: data, encoding: 4),
                let url = URL(string: path as String) {
-                print("MyFileManager.getLogEvents(for: \(url)")
+                print("did drop file with url: \(url)")
+                didDropFileAction(url)
             }
         })
         return true

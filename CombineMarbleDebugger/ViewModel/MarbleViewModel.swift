@@ -13,17 +13,23 @@ class MarbleViewModel: ObservableObject {
     @Published var model: MarbleModel
     @Published var selectedNodeDiagram: StreamDiagram?
     
-    var timeUnitsCount: UInt64 {
+    var timeUnitsCount: Double {
         if let timeLenght = model.timeLenght {
-            return UInt64(round(timeLenght / timeUnit)) + AppConstatns.extraTimeIntervalsInTimeScale * 2
+            return timeLenght / timeUnit + AppConstatns.extraTimeIntervalsInTimeScale * 2
         }
         return 0
     }
     
     var timeScaleStartDate: TimeInterval? {
         guard var start = model.suncsriotionTime?.timeIntervalSince1970 else { return nil }
-        start -= timeUnit * Double(AppConstatns.extraTimeIntervalsInTimeScale)
+        start -= timeUnit * AppConstatns.extraTimeIntervalsInTimeScale
         return round(start)
+    }
+    
+    var marbleStartDate: Date? {
+        guard var start = timeScaleStartDate else { return nil }
+        start += timeUnit * AppConstatns.extraTimeIntervalsInTimeScale
+        return Date(timeIntervalSince1970: start)
     }
     
     init(model: MarbleModel) {

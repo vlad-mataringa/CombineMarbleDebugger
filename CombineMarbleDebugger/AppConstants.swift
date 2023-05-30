@@ -20,5 +20,5 @@ enum AppConstatns {
     
     static let minTimeUnit: TimeInterval = 1
     static let maxTimeUnit: TimeInterval = 3600
-    static let extraTimeIntervalsInTimeScale: UInt64 = 2 // at every end
+    static let extraTimeIntervalsInTimeScale: Double = 2 // at every end
 }

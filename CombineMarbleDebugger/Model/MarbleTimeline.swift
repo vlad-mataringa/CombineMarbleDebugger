@@ -11,6 +11,7 @@ class MarbleTimeline: Identifiable {
     let id: Int
 
     var events: [MarbleEvent] = []
+    var complition: MarbleComplitionEvent?
     
     var firstDate: Date? {
         events.min()?.date

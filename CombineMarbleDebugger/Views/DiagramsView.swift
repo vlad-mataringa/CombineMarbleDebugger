@@ -15,12 +15,51 @@ struct DiagramsView: View {
     var body: some View {
         HStack(alignment: .top) {
             treeView
-            VStack(spacing: 0) {
-                Slider(value: $viewModel.timeUnit, in: 0.1...1)
-                    .frame(width: 200)
-                    .padding()
+            VStack(spacing: 5) {
+                headerView
                 scrollView
             }
+        }
+    }
+    
+    var headerView: some View {
+        HStack(alignment: .center) {
+            detailsView
+            Slider(value: $viewModel.timeUnit, in: 0.1...15)
+        }
+    }
+    
+    var detailsView: some View {
+        VStack(alignment: .leading) {
+            if let title = viewModel.model.tag {
+                Text(title)
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.primary)
+            }
+            Text(viewModel.model.id.uuidString)
+                .font(.subheadline)
+                .bold()
+                .foregroundColor(.gray)
+                .padding(.bottom, 2)
+            
+            HStack(spacing: 15) {
+                makeTimeLabel("Day", viewModel.model.suncsriotionTime?.dateString)
+                makeTimeLabel("Subscription time", viewModel.model.suncsriotionTime?.longTimeString)
+                makeTimeLabel("Last event time", viewModel.model.lastDate?.longTimeString)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func makeTimeLabel(_ title: String, _ date: String?) -> some View {
+        if let date = date {
+            VStack(alignment: .leading) {
+                Text(title)
+                    .foregroundColor(.gray)
+                Text(date)
+                    .bold()
+            }.font(.subheadline)
         }
     }
     
@@ -37,7 +76,7 @@ struct DiagramsView: View {
                         .padding(5)
                 }.buttonStyle(.plain)
             })
-            .padding(24)
+            .padding()
         }
     }
     
@@ -52,12 +91,11 @@ struct DiagramsView: View {
         }
         .padding()
         .border(.gray)
-        .padding()
     }
     
     var marbleDiagramView: some View {
         Group {
-            if let startDate = viewModel.model.suncsriotionTime,
+            if let startDate = viewModel.marbleStartDate,
                let diagram = viewModel.selectedNodeDiagram {
                 MarbleDiagramView(timeline: diagram.upstream1,
                                   startDate: startDate,
@@ -74,12 +112,12 @@ struct DiagramsView: View {
                 HStack {
                     Spacer()
                     Text(diagram.operatorType.rawValue)
-                        .font(.body)
+                        .font(.title2)
                         .bold()
                     Spacer()
                 }
                 .frame(width: diagramWidth)
-                .padding()
+                .padding(.vertical)
                 .background(Color.gray)
                 .cornerRadius(10)
                 .padding(.vertical)
@@ -99,7 +137,7 @@ struct DiagramsView: View {
     
     var timeScale: some View {
         LazyHStack(spacing: AppConstatns.timeScaleStackSpacing) {
-            ForEach(0..<viewModel.timeUnitsCount, id: \.self) { index in
+            ForEach(0..<UInt64(viewModel.timeUnitsCount), id: \.self) { index in
                 VStack(alignment: .leading) {
                     HStack(alignment: .center, spacing: AppConstatns.timeScaleStackSpacing) {
                         timeScaleLine(large: true)
@@ -111,7 +149,6 @@ struct DiagramsView: View {
                         Text(date)
                             .font(.footnote)
                             .frame(width: 80)
-                            .border(.blue)
                             .offset(x: -40)
                     }
                 }

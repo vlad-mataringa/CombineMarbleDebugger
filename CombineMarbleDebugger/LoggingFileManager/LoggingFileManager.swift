@@ -23,11 +23,15 @@ class MyFileManager {
                     model.addSubscriptionEvent(subscriptionEvent)
                 } else if let valueLog = try? LogEvent<ValueLog>.decode(data: data), valueLog.type == .event {
                     model.addEvent(valueLog)
+                } else if let complitionEvent = try? LogEvent<String?>.decode(data: data) {
+                    model.addComplitionEvent(complitionEvent)
                 }
             }
         }
 
         model.finishDataInjection()
+        
+        print("did finish to import file: \(fileUrl.absoluteString)")
         
         return model
     }

@@ -13,6 +13,7 @@ class MarbleModel: Identifiable {
     var suncsriotionTime: Date?
     var timelines: [Int: MarbleTimeline] = [:]
     var treeMap: [Int: MarbleTree] = [:]
+    var complition: MarbleComplitionEvent?
     
     init(id: UUID) {
         self.id = id
@@ -24,11 +25,15 @@ class MarbleModel: Identifiable {
     var timeLenght: TimeInterval?
     
     func finishDataInjection() {
-        lastDate = timelines.values.compactMap { $0.lastDate }.max()
+        lastDate = complition?.date ?? timelines.values.compactMap { $0.lastDate }.max()
         if let suncsriotionTime = suncsriotionTime, let lastDate = lastDate {
             timeLenght = Date.difference(lhs: lastDate, rhs: suncsriotionTime)
         } else {
             timeLenght = 0
+        }
+        // TODO: remove this
+        for timeline in timelines.values {
+            timeline.complition = complition
         }
     }
 }

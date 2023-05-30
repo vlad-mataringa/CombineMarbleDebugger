@@ -39,6 +39,25 @@ class MarbleLogsList {
         timeline.events.append(marbleEvent)
     }
     
+    // TODO: this need to have in consideration the node action, need to fix the logging library first
+    func addComplitionEvent(_ event: LogEvent<String?>) {
+        safeMarbleInit(event.id)
+        
+        guard let model = marbleModels[event.id] else {
+            return
+        }
+        switch event.type {
+        case .cancel:
+            model.complition = .init(date: event.date, type: .cancel)
+        case .finish:
+            model.complition = .init(date: event.date, type: .finsih)
+        case .error:
+            model.complition = .init(date: event.date, type: .error)
+        default:
+            return
+        }
+    }
+    
     func addSubscriptionEvent(_ event: LogEvent<SubscriotionLog>) {
         safeMarbleInit(event.id)
         

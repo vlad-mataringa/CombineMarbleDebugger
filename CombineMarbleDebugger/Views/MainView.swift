@@ -12,17 +12,28 @@ struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
-        HStack {
-            listView
-                .background(Color.gray)
-                .listStyle(.automatic)
-                .frame(width: 305)
+        if viewModel.logsList == nil {
+            DragAndDropView(didDropFileAction: viewModel.loadLogs(for:))
+        } else {
+            logsView
                 .padding()
+        }
+    }
+    
+    var logsView: some View {
+        HStack {
+            VStack(spacing: 0) {
+                Button("Close logs", action: viewModel.removeLogs)
+                    .padding()
+                listView
+                    .background(Color.gray)
+                    .listStyle(.automatic)
+                    .frame(width: 305)
+            }
             if let log = viewModel.selectedLog {
                 DiagramsView(viewModel: MarbleViewModel(model: log))
             }
         }
-       
     }
     
     @ViewBuilder
@@ -46,20 +57,23 @@ struct MainView: View {
     func makeCellView(for model: MarbleModel) -> some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(model.id.uuidString)
+                .bold()
             HStack {
                 if let date = model.suncsriotionTime {
                     VStack(alignment: .leading) {
-                        Text("Subscription")
+                        Text("Subscription time")
                             .foregroundColor(.gray)
                         Text(date.longTimeString)
+                            .bold()
                     }
                 }
                 Spacer()
                 if let date = model.lastDate {
                     VStack(alignment: .leading) {
-                        Text("Last ")
+                        Text("Last event time")
                             .foregroundColor(.gray)
                         Text(date.longTimeString)
+                            .bold()
                     }
                 }
                 Spacer()
@@ -68,7 +82,7 @@ struct MainView: View {
         .font(.subheadline)
         .padding(5)
         .frame(width: 270)
-        .background(Color.red)
+        .background(Color(white: 0.3))
         .cornerRadius(5)
        
     }

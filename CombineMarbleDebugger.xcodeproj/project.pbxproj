@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9C0669172A2506F100F7D86B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0669162A2506F100F7D86B /* MainView.swift */; };
 		9C0669192A25070800F7D86B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0669182A25070800F7D86B /* MainViewModel.swift */; };
+		9C06691B2A26367800F7D86B /* EventPopoverContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C06691A2A26367800F7D86B /* EventPopoverContainerView.swift */; };
 		9C9E5C4A2A1E880F00B2E2B5 /* CombineMarbleDebuggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C492A1E880F00B2E2B5 /* CombineMarbleDebuggerApp.swift */; };
 		9C9E5C4C2A1E880F00B2E2B5 /* DiagramsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C4B2A1E880F00B2E2B5 /* DiagramsView.swift */; };
 		9C9E5C4E2A1E881100B2E2B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E5C4D2A1E881100B2E2B5 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		9C0669162A2506F100F7D86B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9C0669182A25070800F7D86B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		9C06691A2A26367800F7D86B /* EventPopoverContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPopoverContainerView.swift; sourceTree = "<group>"; };
 		9C9E5C462A1E880F00B2E2B5 /* CombineMarbleDebugger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineMarbleDebugger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9E5C492A1E880F00B2E2B5 /* CombineMarbleDebuggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineMarbleDebuggerApp.swift; sourceTree = "<group>"; };
 		9C9E5C4B2A1E880F00B2E2B5 /* DiagramsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramsView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				9C9E5C4B2A1E880F00B2E2B5 /* DiagramsView.swift */,
 				9CF4D5C32A24C7E8007456C5 /* DragAndDropView.swift */,
+				9C06691A2A26367800F7D86B /* EventPopoverContainerView.swift */,
 				9C0669162A2506F100F7D86B /* MainView.swift */,
 				9CF4D5AA2A24B44D007456C5 /* MarbleDiagramView.swift */,
 				9CF4D5AE2A24B4CF007456C5 /* MarbleEventView.swift */,
@@ -294,6 +297,7 @@
 				9CF4D5B12A24B50F007456C5 /* TimeInterval+Extension.swift in Sources */,
 				9CF4D5B42A24B9C8007456C5 /* LoggingFileManager.swift in Sources */,
 				9CF4D5C22A24C493007456C5 /* CollectDictionary.swift in Sources */,
+				9C06691B2A26367800F7D86B /* EventPopoverContainerView.swift in Sources */,
 				9C0669192A25070800F7D86B /* MainViewModel.swift in Sources */,
 				9CF4D5B92A24C16A007456C5 /* MarbleViewModel.swift in Sources */,
 			);
