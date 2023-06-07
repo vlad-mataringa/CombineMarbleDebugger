@@ -14,7 +14,7 @@ class MainViewModel: ObservableObject {
     @Published var selectedLog: MarbleModel?
     
     init() {
-        if let url = URL(string: "file:///Users/matarangavlad/Downloads/marble_log_AF67336A.txt") {
+        if let url = URL(string: "file:///Users/matarangavlad/Downloads/marble_log_46241C24.txt") {
             loadLogs(for: url)
         }
     }
@@ -22,10 +22,10 @@ class MainViewModel: ObservableObject {
     func loadLogs(for url: URL) {
         Task {
             do {
-                if let logsList = try MyFileManager.getLogEvents(for: url) {
+                if let logsList = try LoggingFileManager.getLogEvents(for: url) {
                     await MainActor.run {
                         self.logsList = logsList
-                        self.selectedLog = logsList.marbleModels.values.first
+                        self.selectedLog = logsList.groupedByInstance.values.first
                     }
                 }
             } catch {

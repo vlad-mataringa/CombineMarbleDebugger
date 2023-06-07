@@ -9,19 +9,19 @@ import Foundation
 import CombineMarbleCommon
 
 class MarbleLogsList {
-    private(set) var marbleModels: [UUID: MarbleModel] = [:]
+    private(set) var groupedByInstance: [UUID: MarbleModel] = [:]
     private(set) var groupedByTag: [String: [MarbleModel]] = [:]
     
     private func safeMarbleInit(_ id: UUID) {
-        if marbleModels[id] == nil {
-            marbleModels[id] = .init(id: id)
+        if groupedByInstance[id] == nil {
+            groupedByInstance[id] = .init(id: id)
         }
     }
     
     private func safeTimlineInit(for id: UUID, index: Int) {
         safeMarbleInit(id)
-        if marbleModels[id]?.timelines[index] == nil {
-            marbleModels[id]?.timelines[index] = .init(id: index)
+        if groupedByInstance[id]?.timelines[index] == nil {
+            groupedByInstance[id]?.timelines[index] = .init(id: index)
         }
     }
 
@@ -30,7 +30,7 @@ class MarbleLogsList {
         
         safeTimlineInit(for: event.id, index: content.index)
         
-        guard let timeline = marbleModels[event.id]?.timelines[content.index] else {
+        guard let timeline = groupedByInstance[event.id]?.timelines[content.index] else {
             return
         }
          
@@ -43,7 +43,7 @@ class MarbleLogsList {
     func addComplitionEvent(_ event: LogEvent<String?>) {
         safeMarbleInit(event.id)
         
-        guard let model = marbleModels[event.id] else {
+        guard let model = groupedByInstance[event.id] else {
             return
         }
         switch event.type {
@@ -62,7 +62,7 @@ class MarbleLogsList {
         safeMarbleInit(event.id)
         
         guard let subscriotionLog = event.content,
-              let model = marbleModels[event.id] else {
+              let model = groupedByInstance[event.id] else {
             return
         }
         
@@ -79,7 +79,7 @@ class MarbleLogsList {
     }
     
     func finishDataInjection() {
-        for model in marbleModels.values {
+        for model in groupedByInstance.values {
             model.finishDataInjection()
             guard let tag = model.tag else { continue }
             if groupedByTag[tag] == nil {

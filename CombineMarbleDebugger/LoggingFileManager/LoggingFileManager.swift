@@ -8,7 +8,7 @@
 import Foundation
 import CombineMarbleCommon
 
-class MyFileManager {
+class LoggingFileManager {
     
     static func getLogEvents(for fileUrl: URL) throws -> MarbleLogsList? {
         let model: MarbleLogsList = .init()
