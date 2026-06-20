@@ -14,7 +14,6 @@
 		9C9E5C4C2A1E880F00B2E2B5 /* DiagramsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9E5C4B2A1E880F00B2E2B5 /* DiagramsView.swift */; };
 		9C9E5C4E2A1E881100B2E2B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E5C4D2A1E881100B2E2B5 /* Assets.xcassets */; };
 		9C9E5C512A1E881100B2E2B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9E5C502A1E881100B2E2B5 /* Preview Assets.xcassets */; };
-		9CF4D5962A24AAB0007456C5 /* CombineMarbleCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 9CF4D5952A24AAB0007456C5 /* CombineMarbleCommon */; };
 		9CF4D5992A24AE15007456C5 /* MarbleTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF4D5982A24AE15007456C5 /* MarbleTree.swift */; };
 		9CF4D59B2A24AE54007456C5 /* MarbleEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF4D59A2A24AE54007456C5 /* MarbleEvent.swift */; };
 		9CF4D59D2A24AE7A007456C5 /* MarbleTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF4D59C2A24AE7A007456C5 /* MarbleTimeline.swift */; };
@@ -34,6 +33,7 @@
 		9CF4D5C02A24C429007456C5 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF4D5BF2A24C429007456C5 /* CGPoint+Extension.swift */; };
 		9CF4D5C22A24C493007456C5 /* CollectDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF4D5C12A24C493007456C5 /* CollectDictionary.swift */; };
 		9CF4D5C42A24C7E8007456C5 /* DragAndDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF4D5C32A24C7E8007456C5 /* DragAndDropView.swift */; };
+		F530255D2FE6F545005D6D30 /* CombineMarbleCommon in Frameworks */ = {isa = PBXBuildFile; productRef = F530255C2FE6F545005D6D30 /* CombineMarbleCommon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,6 @@
 		9C9E5C4D2A1E881100B2E2B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C9E5C502A1E881100B2E2B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9C9E5C522A1E881100B2E2B5 /* CombineMarbleDebugger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CombineMarbleDebugger.entitlements; sourceTree = "<group>"; };
-		9CF4D5932A24AA0F007456C5 /* CombineMarbleCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CombineMarbleCommon; path = ../CombineMarbleCommon; sourceTree = "<group>"; };
 		9CF4D5982A24AE15007456C5 /* MarbleTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarbleTree.swift; sourceTree = "<group>"; };
 		9CF4D59A2A24AE54007456C5 /* MarbleEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarbleEvent.swift; sourceTree = "<group>"; };
 		9CF4D59C2A24AE7A007456C5 /* MarbleTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarbleTimeline.swift; sourceTree = "<group>"; };
@@ -73,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CF4D5962A24AAB0007456C5 /* CombineMarbleCommon in Frameworks */,
+				F530255D2FE6F545005D6D30 /* CombineMarbleCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +82,6 @@
 		9C9E5C3D2A1E880F00B2E2B5 = {
 			isa = PBXGroup;
 			children = (
-				9CF4D5922A24AA0F007456C5 /* Packages */,
 				9C9E5C482A1E880F00B2E2B5 /* CombineMarbleDebugger */,
 				9C9E5C472A1E880F00B2E2B5 /* Products */,
 				9CF4D5942A24AAB0007456C5 /* Frameworks */,
@@ -121,14 +119,6 @@
 				9C9E5C502A1E881100B2E2B5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		9CF4D5922A24AA0F007456C5 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				9CF4D5932A24AA0F007456C5 /* CombineMarbleCommon */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		9CF4D5942A24AAB0007456C5 /* Frameworks */ = {
@@ -220,7 +210,7 @@
 			);
 			name = CombineMarbleDebugger;
 			packageProductDependencies = (
-				9CF4D5952A24AAB0007456C5 /* CombineMarbleCommon */,
+				F530255C2FE6F545005D6D30 /* CombineMarbleCommon */,
 			);
 			productName = CombineMarbleDebugger;
 			productReference = 9C9E5C462A1E880F00B2E2B5 /* CombineMarbleDebugger.app */;
@@ -250,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 9C9E5C3D2A1E880F00B2E2B5;
+			packageReferences = (
+				F530255B2FE6F545005D6D30 /* XCRemoteSwiftPackageReference "CombineMarbleCommon" */,
+			);
 			productRefGroup = 9C9E5C472A1E880F00B2E2B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -496,9 +489,21 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		F530255B2FE6F545005D6D30 /* XCRemoteSwiftPackageReference "CombineMarbleCommon" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vlad-mataringa/CombineMarbleCommon.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		9CF4D5952A24AAB0007456C5 /* CombineMarbleCommon */ = {
+		F530255C2FE6F545005D6D30 /* CombineMarbleCommon */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = F530255B2FE6F545005D6D30 /* XCRemoteSwiftPackageReference "CombineMarbleCommon" */;
 			productName = CombineMarbleCommon;
 		};
 /* End XCSwiftPackageProductDependency section */

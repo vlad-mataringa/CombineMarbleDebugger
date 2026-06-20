@@ -1,0 +1,15 @@
+{
+  "originHash" : "1fc6d83d935f2bafd9247468072a74ae9cc523c4eb4687b3b8ee18fdbcf65efd",
+  "pins" : [
+    {
+      "identity" : "combinemarblecommon",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vlad-mataringa/CombineMarbleCommon.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1b16f8b789fbdcce17c6cfcaf96ee48a173241ef"
+      }
+    }
+  ],
+  "version" : 3
+}
